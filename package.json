@@ -7,7 +7,7 @@
     "back"
   ],
   "scripts": {
-    "start": "concurrently \"npm run dev:front\" \"npm run dev:back\"",
+    "start": "npm --prefix back run start:dev",
     "dev": "concurrently \"npm run dev:front\" \"npm run dev:back\"",
     "dev:front": "npm --prefix front run dev",
     "dev:back": "npm --prefix back run start:dev"
