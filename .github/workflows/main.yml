@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./back/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/consorcify_deploy_DEMO:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/consorcify_demo:latest
