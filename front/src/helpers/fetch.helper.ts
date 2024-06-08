@@ -312,8 +312,10 @@ export const getSuppliers = async (token: string) => {
                 Authorization: `Bearer ${token}`,
             },
         });
-        const data = await response.json();
-        return data;
+        if (response.ok) {
+            const data = await response.json();
+            return data;
+        }
     } catch (error) {
         console.error(error);
     }
@@ -340,7 +342,7 @@ export const getSuppliersById = async (id: string, token: string) => {
 
 export const googleLogin = async () => {
     try {
-        const response = await fetch(`${apiUrl}auth/auth0`, {
+        const response = await fetch(`${apiUrl}/auth/auth0`, {
             method: "GET",
         });
         if (response.ok) {
