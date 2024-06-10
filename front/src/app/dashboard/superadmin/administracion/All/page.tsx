@@ -14,36 +14,41 @@ import { useEffect, useState } from "react";
 import useAuth from "@/helpers/useAuth";
 import useSesion from "@/helpers/useSesion";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 // -------------------
 
 const page = () => {
     useAuth();
-    const [admins, setAdmins] = useState<IAdmin[]>([]);
+    const pathname = useParams();
     const { token } = useSesion();
+    const [admins, setAdmins] = useState<IAdmin[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await getAdmins(token);
-                if (response) {
-                    setAdmins(response);
-                }
-            } catch (error) {}
+        const fetchData = async (token: string) => {
+            const response = await getAdmins(token);
+            if (response) {
+                const data = await response.json();
+                setAdmins(data);
+                console.log(data);
+            }
         };
         if (token) {
-            fetchData();
+            fetchData(token);
         }
-    }, [token]);
+    }, [token, pathname]);
 
     return (
-        <div className="flex w-full h-screen gap-3 bg-[#e5e7eb] text-black">
-            <ContainerDashboard className="w-full flex flex-col bg-[#e5e7eb] p-5">
-                <div className="flex items-start w-full">
-                    <Title>Ver todas las administraciones</Title>
-                </div>
+        <div className="h-screen text-white">
+            <ContainerDashboard>
+                <Title>
+                    Administración{" "}
+                    <span className="text-2xl font-thin">
+                        | Administraciones
+                    </span>
+                </Title>
                 <div className="flex flex-col items-center justify-center w-full gap-4">
-                    {admins?.length != 0 ? (
+                    {admins?.length > 0 ? (
                         admins?.map((elemento) => {
                             return (
                                 <Link

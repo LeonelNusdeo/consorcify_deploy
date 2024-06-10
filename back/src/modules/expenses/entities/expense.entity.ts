@@ -24,6 +24,14 @@ export class Expense {
   id: string;
 
   /**
+   * Nombre descriptivo de la expensa
+   * @example "Expensa de Junio"
+   */
+
+  @Column({ length: 50 })
+  name: string;
+
+  /**
    * La fecha de emisión de la expensa
    * @example "2024-06-02"
    */
@@ -70,6 +78,9 @@ export class Expense {
   @OneToMany(() => Expenditure, (expenditure) => expenditure.expense)
   expenditures: Expenditure[];
 
-  @OneToMany(() => FunctionalUnitExpense, (functionalUnitsExpense) => functionalUnitsExpense.expense)
+  @OneToMany(
+    () => FunctionalUnitExpense,
+    (functionalUnitsExpense) => functionalUnitsExpense.expense,
+  )
   functional_units_expenses: FunctionalUnitExpense[];
 }

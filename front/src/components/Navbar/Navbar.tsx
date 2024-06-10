@@ -59,7 +59,7 @@ const Navbar = ({ activeSection }: any) => {
                 showNavbar ? "translate-y-0" : "-translate-y-[130px]"
             }`}
         >
-            <div className="w-screen flex flex-wrap items-center justify-between px-10">
+            <div className="flex flex-wrap items-center justify-between w-screen px-10">
                 <div className="flex flex-col space-x-3">
                     <span className="principal text-[2rem] text-white font-[clash-medium]">
                         CONSORCIFY
@@ -89,7 +89,7 @@ const Navbar = ({ activeSection }: any) => {
                                 type="button"
                                 className="button-log text-black rounded-[50px] px-5 py-3 bg-white font-bold"
                             >
-                                Registar
+                                Registrarse
                             </Link>
                         </>
                     )}
@@ -97,7 +97,7 @@ const Navbar = ({ activeSection }: any) => {
                     <div className="dropdown">
                         <button
                             type="button"
-                            className="inline-flex items-center pl-3 justify-center text-sm text-gray-300 rounded-lg lg:hidden"
+                            className="inline-flex items-center justify-center pl-3 text-sm text-gray-300 rounded-lg lg:hidden"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -131,8 +131,8 @@ const Navbar = ({ activeSection }: any) => {
                             </svg>
                         </button>
 
-                        <div className="menu  text-white  backdrop-blur-sm">
-                            <a href="#inicio">INICIÓ</a>
+                        <div className="text-white menu backdrop-blur-sm">
+                            <a href="#inicio">INICIO</a>
                             <a href="#nosotros">NOSOTROS</a>
                             <a href="#preguntas">PREGUNTAS</a>
                         </div>
@@ -150,7 +150,7 @@ const Navbar = ({ activeSection }: any) => {
                                         : ""
                                 }`}
                             >
-                                INICIÓ
+                                INICIO
                             </a>
                         </li>
                         <li className="py-[5px]">
